@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script language="JavaScript" type="text/javascript" src="../js/vue.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body>
+<div id="vueapp">
+<h1>Test</h1>
+<p>{{greet('afternoon')}}</p>
+<p>{{name}}</p>
+<p>{{job}}</p>
+<a v-bind:href="website">web开发</a>
+<input type="text" v-bind:value="name"/>
+<p v-html="websiteTag"></p>
+
+<h1>Events</h1>
+<button v-on:click.once="addAge(1)">涨一岁</button>
+<button v-on:click="delAge(1)">少一岁</button>
+<button v-on:dblclick="addAge(10)">涨十岁</button>
+<button v-on:dblclick="delAge(10)">少十岁</button>
+<p>My age is {{age}}</p>
+
+<div id = "canvas" v-on:mousemove="updateXY">
+{{x}} , {{y}} <span v-on:mousemove.stop>-- Stop Moving</span>
+</div>
+
+<a v-on:click.prevent="alert" href = "http://www.baidu.com">我要阻止你继续跳转</a>
+</div>
+
+
+
+<div id="vuestudy">
+<h1>键盘Events</h1>
+<label>姓名：</label>
+<input type="text" v-on:keyup.enter="logName"/>
+<label>年龄：</label>
+<input type="text" v-on:keyup.alt.enter="logAge"/>
+
+
+<h1>双向数据绑定  input /select /textarea   可以用ref和v-model</h1>
+<label>姓名：</label>
+<input type="text" ref="name" v-on:keyup="showName"/><span>{{name}}</span>
+<label>年龄：</label>
+<input type="text" ref ="age" v-on:keyup="showAge"/><span>{{age}}</span>
+
+<h1>计算属性 computed</h1>
+<button v-on:click="a++">a++</button>
+<button v-on:click="b++">b++</button>
+<span>a =: {{a}}</span>
+<span>b =:{{b}}</span>
+<br>
+<span>{{addToA}}</span>
+<span>{{addToB}}</span>
+
+</div>
+</body>
+<script language="JavaScript" type="text/javascript" src="../js/app.js"></script>
+</html>
